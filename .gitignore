@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+COMMUNICATION-SERVICE-tcplocalhost1883
 
 ### STS ###
 .apt_generated
