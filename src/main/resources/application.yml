@@ -16,13 +16,6 @@ spring:
           starttls:
             enable: true
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: ${SERVICE_REGISTRY_URL}/eureka
-
 app:
   config:
     from: ${spring.mail.username}

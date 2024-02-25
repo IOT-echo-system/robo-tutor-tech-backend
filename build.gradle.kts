@@ -22,10 +22,11 @@ repositories {
 dependencies {
     implementation(files("./libs/logging-starter-0.0.1.jar"))
     implementation(files("./libs/mqtt-starter-0.0.1.jar"))
-    implementation("org.springframework.integration:spring-integration-mqtt:6.0.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
+
+    implementation("org.springframework.integration:spring-integration-mqtt:6.2.2")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
