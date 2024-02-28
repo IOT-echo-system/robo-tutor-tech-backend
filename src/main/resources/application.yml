@@ -1,12 +1,13 @@
 server:
-  port: ${PORT:9003}
+  port: ${PORT:5001}
+
 
 spring:
   application:
-    name: COMMUNICATION-SERVICE
+    name: ROBOTUTOR-TECH-BACKEND
   mail:
-    host: smtp.gmail.com
-    port: 587
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
     username: ${EMAIL}
     password: ${PASSWORD}
     properties:
@@ -15,12 +16,10 @@ spring:
           auth: true
           starttls:
             enable: true
+  data:
+    mongodb:
+      uri: ${MONGODB_URL}/website-backend
 
 app:
   config:
     from: ${spring.mail.username}
-  mqtt:
-    broker: ${MQTT_BROKER}
-    clientId: ${spring.application.name}
-    username: ${MQTT_USERNAME}
-    password: ${MQTT_PASSWORD}

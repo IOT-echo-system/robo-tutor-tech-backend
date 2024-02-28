@@ -1,1 +1,1 @@
-rootProject.name = "communication-service"
+rootProject.name = "robotutor-tech-backend"

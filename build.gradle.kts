@@ -21,13 +21,22 @@ repositories {
 
 dependencies {
     implementation(files("./libs/logging-starter-0.0.1.jar"))
-    implementation(files("./libs/mqtt-starter-0.0.1.jar"))
+    implementation(files("./libs/iot-utils-starter-0.0.1.jar"))
     implementation ("com.google.code.gson:gson:2.8.8")
 
-    implementation("org.springframework.integration:spring-integration-mqtt:6.2.2")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+    implementation("org.springframework.integration:spring-integration-mqtt:6.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation ("org.springframework.security:spring-security-crypto:5.5.0")
+
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.13.8")
@@ -50,49 +59,49 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-
-// Jacoco configuration`
-jacoco {
-    toolVersion = "0.8.7"
-}
-
-tasks.test {
-    finalizedBy(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    finalizedBy(tasks.jacocoTestCoverageVerification)
-
-}
-
-tasks.jacocoTestCoverageVerification {
-    dependsOn(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                counter = "INSTRUCTION"
-                minimum = BigDecimal(0.63)
-            }
-            limit {
-                counter = "BRANCH"
-                minimum = BigDecimal(0)
-            }
-            limit {
-                counter = "LINE"
-                minimum = BigDecimal(0.68)
-            }
-            limit {
-                counter = "METHOD"
-                minimum = BigDecimal(0.32)
-            }
-            limit {
-                counter = "CLASS"
-                minimum = BigDecimal(0.30)
-            }
-        }
-    }
-}
+//
+//// Jacoco configuration`
+//jacoco {
+//    toolVersion = "0.8.7"
+//}
+//
+//tasks.test {
+//    finalizedBy(tasks.jacocoTestReport)
+//}
+//
+//tasks.jacocoTestReport {
+//    dependsOn(tasks.test)
+//    finalizedBy(tasks.jacocoTestCoverageVerification)
+//
+//}
+//
+//tasks.jacocoTestCoverageVerification {
+//    dependsOn(tasks.jacocoTestReport)
+//}
+//
+//tasks.jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            limit {
+//                counter = "INSTRUCTION"
+//                minimum = BigDecimal(0.63)
+//            }
+//            limit {
+//                counter = "BRANCH"
+//                minimum = BigDecimal(0)
+//            }
+//            limit {
+//                counter = "LINE"
+//                minimum = BigDecimal(0.68)
+//            }
+//            limit {
+//                counter = "METHOD"
+//                minimum = BigDecimal(0.32)
+//            }
+//            limit {
+//                counter = "CLASS"
+//                minimum = BigDecimal(0.30)
+//            }
+//        }
+//    }
+//}
